@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Simple::Metrics::Graphite
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (G)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Simple.html" title="Simple (module)">Simple</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Metrics.html" title="Simple::Metrics (module)">Metrics</a></span></span>
+     &raquo; 
+    <span class="title">Graphite</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Simple::Metrics::Graphite
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/simple/metrics/graphite.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_graphite_reporter-instance_method" title="#enable_graphite_reporter (instance method)">- (Object) <strong>enable_graphite_reporter</strong>(server_name, server_port, prefix, interval_in_seconds = 1) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Enable reporting directly to graphite.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="enable_graphite_reporter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>enable_graphite_reporter</strong>(server_name, server_port, prefix, interval_in_seconds = 1) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Enable reporting directly to graphite
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>server_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The hostname of the graphite server.
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_port</span>
+      
+      
+        <span class='type'>(<tt>Int</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The port that graphite is running on.
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prefix</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The prefix to store the data under, eg: `services.development`. The class
+name, or name of the application will be appended:
+`services.development.teatime`
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>interval_in_seconds</span>
+      
+      
+        <span class='type'>(<tt>Int</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>
+Time interval for sending to graphite in seconds. (Defaults to 1 sec)
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics/graphite.rb', line 17</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_enable_graphite_reporter identifier id'>enable_graphite_reporter</span><span class='lparen token'>(</span><span class='rubyid_server_name identifier id'>server_name</span><span class='comma token'>,</span> <span class='rubyid_server_port identifier id'>server_port</span><span class='comma token'>,</span> <span class='rubyid_prefix identifier id'>prefix</span><span class='comma token'>,</span> <span class='rubyid_interval_in_seconds identifier id'>interval_in_seconds</span> <span class='assign token'>=</span> <span class='integer val'>1</span><span class='rparen token'>)</span>
+  <span class='rubyid_GraphiteReporter constant id'>GraphiteReporter</span><span class='dot token'>.</span><span class='rubyid_enable identifier id'>enable</span><span class='lparen token'>(</span><span class='rubyid_interval_in_seconds identifier id'>interval_in_seconds</span><span class='comma token'>,</span> <span class='rubyid_TimeUnit constant id'>TimeUnit</span><span class='colon2 op'>::</span><span class='rubyid_SECONDS constant id'>SECONDS</span><span class='comma token'>,</span>
+                          <span class='rubyid_server_name identifier id'>server_name</span><span class='comma token'>,</span> <span class='rubyid_server_port identifier id'>server_port</span><span class='comma token'>,</span> <span class='rubyid_prefix identifier id'>prefix</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Nov 05 22:03:44 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

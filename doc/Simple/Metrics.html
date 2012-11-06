@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Simple::Metrics
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Simple.html" title="Simple (module)">Simple</a></span></span>
+     &raquo; 
+    <span class="title">Metrics</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Simple::Metrics
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="Metrics/Timer.html" title="Simple::Metrics::Timer (module)">Timer</a></span></dd>
+      
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="../Samovar.html" title="Samovar (class)">Samovar</a></span>, <span class='object_link'><a href="Metrics/Healthchecks.html" title="Simple::Metrics::Healthchecks (module)">Healthchecks</a></span>, <span class='object_link'><a href="Metrics/Meter.html" title="Simple::Metrics::Meter (module)">Meter</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/simple/metrics.rb<span class="defines">,<br />
+  lib/simple/version.rb,<br /> lib/simple/metrics/meter.rb,<br /> lib/simple/metrics/timer.rb,<br /> lib/simple/metrics/health.rb,<br /> lib/simple/metrics/graphite.rb,<br /> lib/simple/metrics/healthcheck.rb,<br /> lib/simple/metrics/rack_metrics.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Metrics/Graphite.html" title="Simple::Metrics::Graphite (module)">Graphite</a></span>, <span class='object_link'><a href="Metrics/Healthchecks.html" title="Simple::Metrics::Healthchecks (module)">Healthchecks</a></span>, <span class='object_link'><a href="Metrics/Meter.html" title="Simple::Metrics::Meter (module)">Meter</a></span>, <span class='object_link'><a href="Metrics/Timer.html" title="Simple::Metrics::Timer (module)">Timer</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Metrics/Check.html" title="Simple::Metrics::Check (class)">Check</a></span>, <span class='object_link'><a href="Metrics/HEALTHY.html" title="Simple::Metrics::HEALTHY (class)">HEALTHY</a></span>, <span class='object_link'><a href="Metrics/Health.html" title="Simple::Metrics::Health (class)">Health</a></span>, <span class='object_link'><a href="Metrics/RackMetrics.html" title="Simple::Metrics::RackMetrics (class)">RackMetrics</a></span>, <span class='object_link'><a href="Metrics/UNHEALTHY.html" title="Simple::Metrics::UNHEALTHY (class)">UNHEALTHY</a></span>, <span class='object_link'><a href="Metrics/WARNING.html" title="Simple::Metrics::WARNING (class)">WARNING</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="DEFAULT_DURATION_UNIT-constant" class="">DEFAULT_DURATION_UNIT =
+          
+        </dt>
+        <dd><pre class="code"><span class='rubyid_TimeUnit constant id'>TimeUnit</span><span class='colon2 op'>::</span><span class='rubyid_MILLISECONDS constant id'>MILLISECONDS</span>
+</pre></dd>
+      
+        <dt id="DEFAULT_RATE_UNIT-constant" class="">DEFAULT_RATE_UNIT =
+          
+        </dt>
+        <dd><pre class="code"><span class='rubyid_TimeUnit constant id'>TimeUnit</span><span class='colon2 op'>::</span><span class='rubyid_SECONDS constant id'>SECONDS</span>
+</pre></dd>
+      
+        <dt id="DEFAULT_TIMING_UNIT-constant" class="">DEFAULT_TIMING_UNIT =
+          
+        </dt>
+        <dd><pre class="code"><span class='rubyid_TimeUnit constant id'>TimeUnit</span><span class='colon2 op'>::</span><span class='rubyid_NANOSECONDS constant id'>NANOSECONDS</span>
+</pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>&quot;0.0.10&quot;</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#metrics_registry-instance_method" title="#metrics_registry (instance method)">- (Java::ComYammerMetrics::Metrics) <strong>metrics_registry</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+The default metrics registry.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_metric_name-instance_method" title="#new_metric_name (instance method)">- (MetricName) <strong>new_metric_name</strong>(klass_name, name, type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new metric name.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#sanitize_classname-instance_method" title="#sanitize_classname (instance method)">- (String) <strong>sanitize_classname</strong>(klass_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Sanitize classnames for graphite.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Metrics/Timer.html" title="Simple::Metrics::Timer (module)">Timer</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Metrics/Timer.html#timer-instance_method" title="Simple::Metrics::Timer#timer (method)">#timer</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="metrics_registry-instance_method">
+  
+    - (<tt>Java::ComYammerMetrics::Metrics</tt>) <strong>metrics_registry</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+The default metrics registry
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Java::ComYammerMetrics::Metrics</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the default metrics registry
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+37
+38
+39</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics.rb', line 37</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_metrics_registry identifier id'>metrics_registry</span>
+  <span class='rubyid_Java constant id'>Java</span><span class='colon2 op'>::</span><span class='rubyid_ComYammerMetrics constant id'>ComYammerMetrics</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='dot token'>.</span><span class='rubyid_defaultRegistry identifier id'>defaultRegistry</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="new_metric_name-instance_method">
+  
+    - (<tt>MetricName</tt>) <strong>new_metric_name</strong>(klass_name, name, type) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new metric name
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>klass_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The name of the class, usually the application name
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The name of the metric
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>type</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The type of metric
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>MetricName</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the newly created metric name
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics.rb', line 47</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_new_metric_name identifier id'>new_metric_name</span><span class='lparen token'>(</span><span class='rubyid_klass_name identifier id'>klass_name</span><span class='comma token'>,</span> <span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span>
+  <span class='rubyid_MetricName constant id'>MetricName</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_klass_name identifier id'>klass_name</span><span class='dot token'>.</span><span class='rubyid_downcase identifier id'>downcase</span><span class='comma token'>,</span> <span class='rubyid_type identifier id'>type</span><span class='comma token'>,</span> <span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sanitize_classname-instance_method">
+  
+    - (<tt>String</tt>) <strong>sanitize_classname</strong>(klass_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Sanitize classnames for graphite
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>klass_name</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The request object
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The class name without colons
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics.rb', line 30</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_sanitize_classname identifier id'>sanitize_classname</span><span class='lparen token'>(</span><span class='rubyid_klass_name identifier id'>klass_name</span><span class='rparen token'>)</span>
+  <span class='rubyid_klass_name identifier id'>klass_name</span><span class='dot token'>.</span><span class='rubyid_gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>&quot;:&quot;</span><span class='comma token'>,</span><span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Nov 05 22:03:43 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

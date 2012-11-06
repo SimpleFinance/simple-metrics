@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Simple::Metrics::Healthchecks
+  
+    &mdash; Documentation by YARD 0.8.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (H)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../Simple.html" title="Simple (module)">Simple</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Metrics.html" title="Simple::Metrics (module)">Metrics</a></span></span>
+     &raquo; 
+    <span class="title">Healthchecks</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: Simple::Metrics::Healthchecks
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="../Metrics.html" title="Simple::Metrics (module)">Simple::Metrics</a></span></dd>
+      
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="../../NurseRatched.html" title="NurseRatched (class)">NurseRatched</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/simple/metrics/healthcheck.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="../Metrics.html" title="Simple::Metrics (module)">Simple::Metrics</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Metrics.html#DEFAULT_DURATION_UNIT-constant" title="Simple::Metrics::DEFAULT_DURATION_UNIT (constant)">DEFAULT_DURATION_UNIT</a></span>, <span class='object_link'><a href="../Metrics.html#DEFAULT_RATE_UNIT-constant" title="Simple::Metrics::DEFAULT_RATE_UNIT (constant)">DEFAULT_RATE_UNIT</a></span>, <span class='object_link'><a href="../Metrics.html#DEFAULT_TIMING_UNIT-constant" title="Simple::Metrics::DEFAULT_TIMING_UNIT (constant)">DEFAULT_TIMING_UNIT</a></span>, <span class='object_link'><a href="../Metrics.html#VERSION-constant" title="Simple::Metrics::VERSION (constant)">VERSION</a></span></p>
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#new_healthcheck-instance_method" title="#new_healthcheck (instance method)">- (MetricName) <strong>new_healthcheck</strong>(name, &amp;blk) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Create a new healthcheck.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_all_healthchecks-instance_method" title="#run_all_healthchecks (instance method)">- (Object) <strong>run_all_healthchecks</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Run all of the healthchecks that have been defined.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_healthcheck_loop-instance_method" title="#run_healthcheck_loop (instance method)">- (Object) <strong>run_healthcheck_loop</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Run the healthcheck loop This starts a new thread that runs all of the
+defined healthcheck loops.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Metrics.html" title="Simple::Metrics (module)">Simple::Metrics</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Metrics.html#metrics_registry-instance_method" title="Simple::Metrics#metrics_registry (method)">#metrics_registry</a></span>, <span class='object_link'><a href="../Metrics.html#new_metric_name-instance_method" title="Simple::Metrics#new_metric_name (method)">#new_metric_name</a></span>, <span class='object_link'><a href="../Metrics.html#sanitize_classname-instance_method" title="Simple::Metrics#sanitize_classname (method)">#sanitize_classname</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Timer.html" title="Simple::Metrics::Timer (module)">Timer</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Timer.html#timer-instance_method" title="Simple::Metrics::Timer#timer (method)">#timer</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="new_healthcheck-instance_method">
+  
+    - (<tt>MetricName</tt>) <strong>new_healthcheck</strong>(name, &amp;blk) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Create a new healthcheck
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The name of the healthcheck, eg `check_db`.
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>MetricName</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+the newly created metric name
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+12
+13
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics/healthcheck.rb', line 12</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_new_healthcheck identifier id'>new_healthcheck</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_blk identifier id'>blk</span><span class='rparen token'>)</span>
+  <span class='rubyid_healthcheck identifier id'>healthcheck</span> <span class='assign token'>=</span> <span class='rubyid_Check constant id'>Check</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='bitand op'>&amp;</span><span class='rubyid_blk identifier id'>blk</span><span class='rparen token'>)</span>
+  <span class='rubyid_Java constant id'>Java</span><span class='colon2 op'>::</span><span class='rubyid_ComYammerMetrics constant id'>ComYammerMetrics</span><span class='colon2 op'>::</span><span class='rubyid_HealthChecks constant id'>HealthChecks</span><span class='dot token'>.</span><span class='rubyid_register identifier id'>register</span><span class='lparen token'>(</span><span class='rubyid_healthcheck identifier id'>healthcheck</span><span class='rparen token'>)</span>
+  <span class='rubyid_run_healthcheck_loop identifier id'>run_healthcheck_loop</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_all_healthchecks-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_all_healthchecks</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Run all of the healthchecks that have been defined
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics/healthcheck.rb', line 32</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_run_all_healthchecks identifier id'>run_all_healthchecks</span>
+  <span class='rubyid_Java constant id'>Java</span><span class='colon2 op'>::</span><span class='rubyid_ComYammerMetrics constant id'>ComYammerMetrics</span><span class='colon2 op'>::</span><span class='rubyid_HealthChecks constant id'>HealthChecks</span><span class='dot token'>.</span><span class='rubyid_runHealthChecks identifier id'>runHealthChecks</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_healthcheck_loop-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_healthcheck_loop</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>
+Run the healthcheck loop This starts a new thread that runs all of the
+defined healthcheck loops.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics/healthcheck.rb', line 20</span>
+
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_run_healthcheck_loop identifier id'>run_healthcheck_loop</span>
+  <span class='rubyid_return return kw'>return</span> <span class='rubyid_if if_mod kw'>if</span> <span class='rubyid_@running_healthcheck_loop ivar id'>@running_healthcheck_loop</span>
+  <span class='rubyid_Thread constant id'>Thread</span><span class='dot token'>.</span><span class='rubyid_new identifier id'>new</span> <span class='rubyid_do do kw'>do</span>
+    <span class='rubyid_loop identifier id'>loop</span> <span class='rubyid_do do kw'>do</span>
+      <span class='rubyid_run_all_healthchecks identifier id'>run_all_healthchecks</span>
+      <span class='rubyid_sleep identifier id'>sleep</span> <span class='integer val'>5</span>
+    <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_end end kw'>end</span>
+  <span class='rubyid_@running_healthcheck_loop ivar id'>@running_healthcheck_loop</span> <span class='assign token'>=</span> <span class='rubyid_true true kw'>true</span>
+<span class='rubyid_end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Mon Nov 05 22:03:44 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.3 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>
