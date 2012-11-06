@@ -52,6 +52,10 @@ If you are running the servlet in a warbler .war file (see example below), you c
 
 ## Timers
 
+From: <a href="http://metrics.codahale.com/getting-started/#timers">Timers</a>:
+
+A timer measures both the rate that a particular piece of code is called and the distribution of its duration.
+
     class Samovar
       include Simple::Metrics
 
@@ -63,6 +67,10 @@ If you are running the servlet in a warbler .war file (see example below), you c
     end
 
 ## Meters
+
+From: <a href="http://metrics.codahale.com/getting-started/#meters">Meters</a>:
+
+"A meter measures the rate of events over time (e.g., “requests per second”). In addition to the mean rate, meters also track 1-, 5-, and 15-minute moving averages."
 
     class Rdio
       extend Simple::Metrics::Meter
