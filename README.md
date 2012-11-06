@@ -1,6 +1,6 @@
 # Simple::Metrics
 
-A simple JRuby wrapper around Coda's <a href="http://http://metrics.codahale.com/">Metrics package</a>
+A simple JRuby wrapper around Coda's excellent <a href="http://metrics.codahale.com/">Metrics package</a>
 
 ## Installation
 
@@ -18,7 +18,13 @@ Or install it yourself as:
 
 ## Healthchecks
 
-Register a new healthcheck
+Monitor the health of your application in a granular way.
+
+In a Sinatra/Padrino app, register healthchecks as an extension like so:
+
+    register Simple::Metrics::Healthchecks
+
+To register a new healthcheck:
 
     class NurseRatched
       extend Simple::Metrics::Healthchecks
@@ -40,9 +46,9 @@ Run all healthchecks:
 
     NurseRatched.run_all_healthchecks
 
-In a Sinatra/Padrino app, register healthchecks as an extension like so:
+Your healthchecks will be run in a separate thread every 5 seconds. This is a great way to monitor the health of your db connections, thread pools and connections to queues.
 
-    register Simple::Metrics::Healthchecks
+If you are running the servlet in a warbler .war file (see example below), you can monitor the overall health of your application with nagios or other monitoring tools.
 
 ## Timers
 
@@ -78,7 +84,7 @@ In a Sinatra app:
 
 ## Exposing metrics from within your app
 
-In order to view the metrics from your application, you'll need to add the servlet endpoints.
+In order to view/collect the health and metrics of your application from the web, you'll need to add the servlet endpoints.
 For this example, I'm using <a href="https://github.com/jruby/warbler">Warbler</a> to package
 the application as a .war
 
@@ -117,7 +123,7 @@ In config/web.xml, add the following servlet mappings:
         <url-pattern>/ping</url-pattern>
       </servlet-mapping>
 
-Now you can visit your application and get a thread dump:
+Now you can visit your application and get a thread dump, health check or collect metrics using collectd:
 
     > curl localhost:9292/threads
       main id=1 state=WAITING
