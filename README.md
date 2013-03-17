@@ -75,7 +75,7 @@ From: <a href="http://metrics.codahale.com/getting-started/#meters">Meters</a>:
     class Rdio
       extend Simple::Metrics::Meter
 
-      define_meter :bump
+      define_meter :bump_meter
 
       def bump_dat
         bump_meter.mark
