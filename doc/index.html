@@ -2,7 +2,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: README
   
@@ -63,11 +63,11 @@
 
     <div id="content"><div id='filecontents'><h1 id="simplemetrics">Simple::Metrics</h1>
 
-<p>A simple JRuby wrapper around Coda&#8217;s <a href="http://http://metrics.codahale.com/">Metrics package</a></p>
+<p>A simple JRuby wrapper around Coda’s excellent <a href="http://metrics.codahale.com/">Metrics package</a></p>
 
 <h2 id="installation">Installation</h2>
 
-<p>Add this line to your application&#8217;s Gemfile:</p>
+<p>Add this line to your application’s Gemfile:</p>
 
 <pre class="code ruby"><code><span class='rubyid_gem identifier id'>gem</span> <span class='string val'>'simple-metrics'</span>
 </code></pre>
@@ -84,7 +84,14 @@
 
 <h2 id="healthchecks">Healthchecks</h2>
 
-<p>Register a new healthcheck</p>
+<p>Monitor the health of your application in a granular way.</p>
+
+<p>In a Sinatra/Padrino app, register healthchecks as an extension like so:</p>
+
+<pre class="code ruby"><code><span class='rubyid_register identifier id'>register</span> <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='colon2 op'>::</span><span class='rubyid_Healthchecks constant id'>Healthchecks</span>
+</code></pre>
+
+<p>To register a new healthcheck:</p>
 
 <pre class="code ruby"><code><span class='rubyid_class class kw'>class</span> <span class='rubyid_NurseRatched constant id'>NurseRatched</span>
   <span class='rubyid_extend identifier id'>extend</span> <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='colon2 op'>::</span><span class='rubyid_Healthchecks constant id'>Healthchecks</span>
@@ -108,12 +115,15 @@
 <pre class="code ruby"><code><span class='rubyid_NurseRatched constant id'>NurseRatched</span><span class='dot token'>.</span><span class='rubyid_run_all_healthchecks identifier id'>run_all_healthchecks</span>
 </code></pre>
 
-<p>In a Sinatra/Padrino app, register healthchecks as an extension like so:</p>
+<p>Your healthchecks will be run in a separate thread every 5 seconds. This is a great way to monitor the health of your db connections, thread pools and connections to queues.</p>
 
-<pre class="code ruby"><code><span class='rubyid_register identifier id'>register</span> <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='colon2 op'>::</span><span class='rubyid_Healthchecks constant id'>Healthchecks</span>
-</code></pre>
+<p>If you are running the servlet in a warbler .war file (see example below), you can monitor the overall health of your application with nagios or other monitoring tools.</p>
 
 <h2 id="timers">Timers</h2>
+
+<p>From: <a href="http://metrics.codahale.com/getting-started/#timers">Timers</a>:</p>
+
+<p>A timer measures both the rate that a particular piece of code is called and the distribution of its duration.</p>
 
 <pre class="code ruby"><code><span class='rubyid_class class kw'>class</span> <span class='rubyid_Samovar constant id'>Samovar</span>
   <span class='rubyid_include identifier id'>include</span> <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span>
@@ -127,6 +137,10 @@
 </code></pre>
 
 <h2 id="meters">Meters</h2>
+
+<p>From: <a href="http://metrics.codahale.com/getting-started/#meters">Meters</a>:</p>
+
+<p>“A meter measures the rate of events over time (e.g., “requests per second”). In addition to the mean rate, meters also track 1-, 5-, and 15-minute moving averages.”</p>
 
 <pre class="code ruby"><code><span class='rubyid_class class kw'>class</span> <span class='rubyid_Rdio constant id'>Rdio</span>
   <span class='rubyid_extend identifier id'>extend</span> <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='colon2 op'>::</span><span class='rubyid_Meter constant id'>Meter</span>
@@ -150,8 +164,8 @@
 
 <h2 id="exposing-metrics-from-within-your-app">Exposing metrics from within your app</h2>
 
-<p>In order to view the metrics from your application, you&#8217;ll need to add the servlet endpoints.
-For this example, I&#8217;m using <a href="https://github.com/jruby/warbler">Warbler</a> to package
+<p>In order to view/collect the health and metrics of your application from the web, you’ll need to add the servlet endpoints.
+For this example, I’m using <a href="https://github.com/jruby/warbler">Warbler</a> to package
 the application as a .war</p>
 
 <p>In config/web.xml, add the following servlet mappings:</p>
@@ -190,7 +204,7 @@ the application as a .war</p>
   &lt;/s</span><span class='rubyid_ervlet identifier id'>ervlet</span><span class='minus op'>-</span><span class='rubyid_mapping identifier id'>mapping</span><span class='gt op'>&gt;</span>
 </code></pre>
 
-<p>Now you can visit your application and get a thread dump:</p>
+<p>Now you can visit your application and get a thread dump, health check or collect metrics using collectd:</p>
 
 <pre class="code ruby"><code><span class='gt op'>&gt;</span> <span class='rubyid_curl identifier id'>curl</span> <span class='rubyid_localhost identifier id'>localhost</span><span class='symbol val'>:9292</span><span class='div op'>/</span><span class='rubyid_threads identifier id'>threads</span>
   <span class='rubyid_main identifier id'>main</span> <span class='rubyid_id identifier id'>id</span><span class='assign token'>=</span><span class='integer val'>1</span> <span class='rubyid_state identifier id'>state</span><span class='assign token'>=</span><span class='rubyid_WAITING constant id'>WAITING</span>
@@ -201,9 +215,9 @@ the application as a .war</p>
 </div></div>
 
     <div id="footer">
-  Generated on Mon Nov 05 22:03:42 2012 by
+  Generated on Mon May 13 23:22:15 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>

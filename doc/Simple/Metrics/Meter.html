@@ -119,7 +119,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#define_meter-instance_method" title="#define_meter (instance method)">- (Object) <strong>define_meter</strong>(name, klass_name = self.class.name) </a>
+      <a href="#define_meter-instance_method" title="#define_meter (instance method)">- (Object) <strong>define_meter</strong>(name, klass_name = self.class.name, time_unit = Simple::Metrics::DEFAULT_RATE_UNIT) </a>
     
 
     
@@ -133,9 +133,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>
-Create a new meter.
-</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Create a new meter.</p>
 </div></span>
   
 </li>
@@ -175,7 +174,7 @@ Create a new meter.
       <div class="method_details first">
   <h3 class="signature first" id="define_meter-instance_method">
   
-    - (<tt>Object</tt>) <strong>define_meter</strong>(name, klass_name = self.class.name) 
+    - (<tt>Object</tt>) <strong>define_meter</strong>(name, klass_name = self.class.name, time_unit = Simple::Metrics::DEFAULT_RATE_UNIT) 
   
 
   
@@ -183,12 +182,10 @@ Create a new meter.
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>
-Create a new meter
-</p>
-<p>
-`self.class.name`
-</p>
+    
+<p>Create a new meter</p>
+
+<p>`self.class.name` TimeUnit::SECONDS</p>
 
 
   </div>
@@ -207,9 +204,8 @@ Create a new meter
       
       
         &mdash;
-        <div class='inline'><p>
-The name of the meter
-</p>
+        <div class='inline'>
+<p>The name of the meter</p>
 </div>
       
     </li>
@@ -226,9 +222,26 @@ The name of the meter
       
       
         &mdash;
-        <div class='inline'><p>
-The name of the class, usually the application. Defaults to
-</p>
+        <div class='inline'>
+<p>The name of the class, usually the application. Defaults to</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>time_unit</span>
+      
+      
+        <span class='type'>(<tt>TimeUnit</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>Simple::Metrics::DEFAULT_RATE_UNIT</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The rate at which to measure marked data. Defaults to</p>
 </div>
       
     </li>
@@ -242,24 +255,22 @@ The name of the class, usually the application. Defaults to
       <pre class="lines">
 
 
-11
-12
 13
 14
 15
 16
 17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/simple/metrics/meter.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/simple/metrics/meter.rb', line 13</span>
 
-<span class='rubyid_def def kw'>def</span> <span class='rubyid_define_meter identifier id'>define_meter</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_klass_name identifier id'>klass_name</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span><span class='rparen token'>)</span>
+<span class='rubyid_def def kw'>def</span> <span class='rubyid_define_meter identifier id'>define_meter</span><span class='lparen token'>(</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_klass_name identifier id'>klass_name</span> <span class='assign token'>=</span> <span class='rubyid_self self kw'>self</span><span class='dot token'>.</span><span class='rubyid_class identifier id'>class</span><span class='dot token'>.</span><span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_time_unit identifier id'>time_unit</span> <span class='assign token'>=</span> <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='colon2 op'>::</span><span class='rubyid_DEFAULT_RATE_UNIT constant id'>DEFAULT_RATE_UNIT</span><span class='rparen token'>)</span>
   <span class='rubyid_type identifier id'>type</span> <span class='assign token'>=</span> <span class='string val'>&quot;meter&quot;</span>
   <span class='rubyid_metric_name identifier id'>metric_name</span> <span class='assign token'>=</span> <span class='rubyid_new_metric_name identifier id'>new_metric_name</span><span class='lparen token'>(</span><span class='rubyid_klass_name identifier id'>klass_name</span><span class='comma token'>,</span> <span class='rubyid_name identifier id'>name</span><span class='comma token'>,</span> <span class='rubyid_type identifier id'>type</span><span class='rparen token'>)</span>
-  <span class='rubyid_meter identifier id'>meter</span> <span class='assign token'>=</span> <span class='rubyid_Java constant id'>Java</span><span class='colon2 op'>::</span><span class='rubyid_ComYammerMetrics constant id'>ComYammerMetrics</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='dot token'>.</span><span class='rubyid_new_meter identifier id'>new_meter</span><span class='lparen token'>(</span><span class='rubyid_metric_name identifier id'>metric_name</span><span class='comma token'>,</span> <span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='comma token'>,</span>
-                                                      <span class='rubyid_Simple constant id'>Simple</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='colon2 op'>::</span><span class='rubyid_DEFAULT_RATE_UNIT constant id'>DEFAULT_RATE_UNIT</span><span class='rparen token'>)</span>
+  <span class='rubyid_meter identifier id'>meter</span> <span class='assign token'>=</span> <span class='rubyid_Java constant id'>Java</span><span class='colon2 op'>::</span><span class='rubyid_ComYammerMetrics constant id'>ComYammerMetrics</span><span class='colon2 op'>::</span><span class='rubyid_Metrics constant id'>Metrics</span><span class='dot token'>.</span><span class='rubyid_new_meter identifier id'>new_meter</span><span class='lparen token'>(</span><span class='rubyid_metric_name identifier id'>metric_name</span><span class='comma token'>,</span> <span class='rubyid_name identifier id'>name</span><span class='dot token'>.</span><span class='rubyid_to_s identifier id'>to_s</span><span class='comma token'>,</span> <span class='rubyid_time_unit identifier id'>time_unit</span><span class='rparen token'>)</span>
   <span class='rubyid_define_method identifier id'>define_method</span><span class='lparen token'>(</span><span class='dstring node'>&quot;#{name}&quot;</span><span class='rparen token'>)</span> <span class='rubyid_do do kw'>do</span>
     <span class='rubyid_meter identifier id'>meter</span>
   <span class='rubyid_end end kw'>end</span>
@@ -275,9 +286,9 @@ The name of the class, usually the application. Defaults to
 </div>
 
     <div id="footer">
-  Generated on Mon Nov 05 22:03:43 2012 by
+  Generated on Mon May 13 23:22:15 2013 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.3 (ruby-1.9.2).
+  0.8.3 (ruby-1.9.3).
 </div>
 
   </body>
