@@ -14,7 +14,7 @@ module Simple
       #                 `services.development.teatime`
       # @param [Int] interval_in_seconds Time interval for sending to graphite in seconds.
       #              (Defaults to 1 sec)
-      def enable_graphite_reporter(server_name, server_port, prefix, interval_in_seconds = 1)
+      def enable_graphite_reporter(server_name, server_port, prefix, interval_in_seconds = 60)
         GraphiteReporter.enable(interval_in_seconds, TimeUnit::SECONDS,
                                 server_name, server_port, prefix)
       end
