@@ -138,3 +138,7 @@ Now you can visit your application and get a thread dump, health check or collec
       - waiting on <0x073772c5> (a java.lang.Object)
       - locked <0x073772c5> (a java.lang.Object)
       at java.lang.Object.wait(Native Method)
+
+## API documentation
+
+<a href="http://simplefinance.github.io/simple-metrics/">API Docs</a>
